@@ -8,13 +8,15 @@ class AteneaVetAPI{
      
      this.app= express();
      this.adminEspecie= new AdminEspecie();
+
+     this.app.use(this.configurarCORS);
+     this.app.use(express.json()); 
      
      this.app.post("/crear_especie", ()=>{this.adminEspecie.crearEspecie(req, res);});
 
      this.app.get("/listar_especies", ()=>{this.adminEspecie.listarEspecie(req, res);});
    
-     this.app.use(this.configurarCORS);
-     this.app.use(express.json());  
+      
    
     }
 
