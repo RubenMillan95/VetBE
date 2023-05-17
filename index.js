@@ -11,7 +11,10 @@ class AteneaVetAPI{
 
      this.app.use(this.configurarCORS);
      this.app.use(express.json()); 
-     
+
+
+
+     //to do: Estoy confiando en los datos del front end
      this.app.post("/crear_especie", ()=>{this.adminEspecie.crearEspecie(req, res);});
 
      this.app.get("/listar_especies", ()=>{this.adminEspecie.listarEspecie(req, res);});
@@ -29,7 +32,7 @@ class AteneaVetAPI{
 
 
     }
-
+    //To do : No estoy gestionando excepciones. 
     iniciarServidor(){
         this.app.listen(this.puerto, ()=>{
             console.log(`Servidor ejecutandose en el puerto ${this.puerto}`);
